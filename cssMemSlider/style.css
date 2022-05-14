@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(65, 65, 65);
+}
+
+.slider {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons  {
+  display: flex;
+  justify-content: center;
+  order: 1;
+}
+
+.button  {
+  padding: 7px 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+.button:hover .circle {
+  background-color: rgb(221, 149, 16);
+}
+
+
+.circle {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(231, 204, 50);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.images  {
+  width: 600px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.image  {
+  display: none;
+  width: 100%;
+    height: 100%;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text-content {
+  font-size: 24px;
+  padding-top: 10px;
+  color: white;
+  display: none;
+}
+.text-content span {
+  margin-right: 30px;
+}
+
+
+
+#slide-1:checked~.buttons>label:nth-child(1) .circle,
+#slide-2:checked~.buttons>label:nth-child(2) .circle,
+#slide-3:checked~.buttons>label:nth-child(3) .circle, 
+#slide-4:checked~.buttons>label:nth-child(4) .circle, 
+#slide-5:checked~.buttons>label:nth-child(5) .circle, 
+#slide-6:checked~.buttons>label:nth-child(6) .circle, 
+#slide-7:checked~.buttons>label:nth-child(7) .circle
+{
+  background-color: rgb(176, 76, 9);
+}
+#slide-1:checked~.images>label:nth-child(1),
+#slide-2:checked~.images>label:nth-child(2),
+#slide-3:checked~.images>label:nth-child(3), 
+#slide-4:checked~.images>label:nth-child(4), 
+#slide-5:checked~.images>label:nth-child(5), 
+#slide-6:checked~.images>label:nth-child(6), 
+#slide-7:checked~.images>label:nth-child(7) 
+{
+  display: block;
+}
+#slide-1:checked~.text>label:nth-child(1),
+#slide-2:checked~.text>label:nth-child(2),
+#slide-3:checked~.text>label:nth-child(3), 
+#slide-4:checked~.text>label:nth-child(4), 
+#slide-5:checked~.text>label:nth-child(5), 
+#slide-6:checked~.text>label:nth-child(6), 
+#slide-7:checked~.text>label:nth-child(7)
+{
+  display: block;
+}
