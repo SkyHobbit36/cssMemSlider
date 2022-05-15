@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(65, 65, 65);
+}
+
+.slider-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+
+.slider {
+  width: 45vw;
+  min-width: 415px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.buttons  {
+  width: 110px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+}
+
+.button  {
+  padding: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+.button:hover .circle {
+  background-color: rgb(176, 76, 9);
+}
+
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(231, 204, 50);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.images  {
+  width: 100%;
+  
+  height: 500px;
+  overflow: hidden;
+
+  /* align-items: flex-end; */
+}
+
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text {
+  max-width: 300px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.text-content span:not(:last-child){
+  margin-right: 30px;
+}
+
+
+.image-2,
+.text-content-2 {
+  transform: translateY(calc(100% - (100% * 2)));
+}
+.image-3,
+.text-content-3 {
+  transform: translateY(calc(100% - (100% * 3)));
+}
+.image-4,
+.text-content-4 {
+  transform: translateY(calc(100% - (100% * 4)));
+}
+.image-5,
+.text-content-5 {
+  transform: translateY(calc(100% - (100% * 5)));
+}
+.image-6,
+.text-content-6 {
+  transform: translateY(calc(100% - (100% * 6)));
+}
+
+
+.image {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #202020;
+  animation-name: slideOut;
+  animation-duration: .4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  filter: blur(0px);
+}
+
+
+.text-content {
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  font-size: 1.2em;
+  height: 100%;
+  color: white;
+  animation-name: slideOutText;
+  animation-duration: .4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.loader {
+  opacity: 1;
+  animation-delay: .4s;
+  transform: translateY(calc(100% - (100% * 7)));
+}
+
+/* active button */
+#slide-1:checked~.buttons>label:nth-child(1) .circle,
+#slide-2:checked~.buttons>label:nth-child(2) .circle,
+#slide-3:checked~.buttons>label:nth-child(3) .circle, 
+#slide-4:checked~.buttons>label:nth-child(4) .circle, 
+#slide-5:checked~.buttons>label:nth-child(5) .circle, 
+#slide-6:checked~.buttons>label:nth-child(6) .circle {
+  background-color: rgb(176, 76, 9);
+  outline: 3px solid #e7cc32;
+}
+/* active slide */
+#slide-1:checked~.images>.image-1,
+#slide-2:checked~.images>.image-2,
+#slide-3:checked~.images>.image-3, 
+#slide-4:checked~.images>.image-4, 
+#slide-5:checked~.images>.image-5, 
+#slide-6:checked~.images>.image-6 {
+  animation-name: slideIn;
+}
+/* active text */
+#slide-1:checked~.text>.text-content-1,
+#slide-2:checked~.text>.text-content-2,
+#slide-3:checked~.text>.text-content-3, 
+#slide-4:checked~.text>.text-content-4, 
+#slide-5:checked~.text>.text-content-5, 
+#slide-6:checked~.text>.text-content-6 {
+  animation-name: slideInText;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    filter: blur(300px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    filter: blur(300px);
+  }
+}
+@keyframes slideInText {
+  0% {
+    margin-left: 300px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+@keyframes slideOutText {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: -300px;
+  }
+}
+
+
+@media (max-width: 430px) {
+  .slider {
+      min-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      flex-direction: column;
+    }
+    .buttons {
+      width: 100%;
+    }
+
+    .images {
+      height: 100vw;
+    }
+    .text {
+      padding-left: 10px;
+      order:2;
+    }
+}
